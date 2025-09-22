@@ -1,0 +1,9 @@
+master=[101,102,103,104,105]
+with open("attendance.txt") as f:
+    present=[int(x.strip()) for x in f]
+absent=[r for r in master if r not in present]
+print("Present:",present)
+print("Absent:",absent)
+with open("absent.txt","w") as f:
+    for r in absent:
+        f.write(str(r)+"\n")
