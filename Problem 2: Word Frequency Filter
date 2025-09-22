@@ -1,0 +1,16 @@
+with open("story.txt","r") as f:
+    text=f.read().lower()
+cleaned=""
+for ch in text:
+    if ch.isalnum() or ch.isspace():
+        cleaned+=ch
+words=cleaned.split()
+d={}
+for w in words:
+    d[w]=d.get(w,0)+1
+n=int(input("Enter the threshold number: "))
+items=list(d.items())
+items.sort(key=lambda x:(-x[1],x[0]))
+for word,count in items:
+    if count>=n:
+        print(word,"-->",count)
