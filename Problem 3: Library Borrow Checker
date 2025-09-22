@@ -1,0 +1,18 @@
+books={"Python":3,"Java":2,"C++":1}
+
+while True:
+    b=input("Enter book to borrow (or 'stop' to finish): ")
+    if b.lower()=="stop":
+        break
+    if b in books:
+        if books[b]>0:
+            books[b]-=1
+            print("Issued",b)
+        else:
+            print("Out of stock")
+    else:
+        print("Not found")
+
+with open("library.txt","w") as f:
+    for title,qty in books.items():
+        f.write(title+":"+str(qty)+"\n")
