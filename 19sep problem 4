@@ -1,0 +1,16 @@
+# Problem 4: Write a Python script to read a text file and print only the lines that contain the word "error" (case-insensitive).
+import os
+
+with open("log_file.txt", "w") as f:
+    f.write("INFO: Application started\n")
+    f.write("ERROR: Failed to connect to database\n")
+    f.write("DEBUG: User logged in\n")
+    f.write("Error: Invalid credentials\n")
+    f.write("INFO: Operation successful\n")
+
+with open("log_file.txt", "r") as f:
+    for line in f:
+        if "error" in line.lower():
+            print(line.strip())
+
+os.remove("log_file.txt")
