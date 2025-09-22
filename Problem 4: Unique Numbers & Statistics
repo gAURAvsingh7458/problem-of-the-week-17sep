@@ -1,0 +1,7 @@
+nums=list(map(int,input("Enter numbers: ").split()))
+s=set(nums)
+print("Unique numbers:",s)
+count=len(s)
+total=sum(s)
+avg=total/count
+print("Count=",count,"Sum=",total,"Avg=",avg,"Max=",max(s),"Min=",min(s))
